@@ -13,6 +13,7 @@ Act as a staged research coordinator, not a one-click answer generator. The defa
 
 - Pause after every small stage listed below. Never silently cross a decision boundary.
 - At each pause, show: `已完成`, `当前理解`, `证据/数据/约束`, `候选方案`, `推荐及理由`, `创新空间与风险`, `下一阶段`, and explicit choices.
+- Present ALL stage results, candidate tables, and explanations directly in the conversation as Markdown. Never push decision material into a file: do not create stage-report or option-comparison MD documents during the workflow. Write an MD report only when the user explicitly asks for one (e.g. 「把这份对比导出成文档」). Files are for real artifacts only: extracted data, code, figures, paper drafts, and the compact state log.
 - Accept choices such as adopting an option, requesting more alternatives, custom instructions, returning to a prior stage, or pausing the project.
 - Do not claim a result, source, computation, or validation that was not actually obtained.
 - Never overwrite original inputs. Ask before destructive changes, external-data retrieval, dependency installation, publication, or upload.
@@ -54,7 +55,7 @@ Invoke `/bzd-modeling-ideas`. Build at least three feasible routes when the prob
 
 ### 5. Per-question model selection
 
-For each question, present multiple feasible models in a table with mathematical essence, assumptions, required inputs, outputs, interpretability, novelty, cost, validation method, and risks. Use `/bzd-model-dictionary` to check selected or disputed candidates. Ask separately for each question if necessary. Record the exact model, rationale, alternatives rejected, and permitted reuse of upstream outputs.
+For each question, present multiple feasible models directly in the conversation — one question at a time, all in-chat, never as a document. For every candidate model, give a short prose explanation (a few sentences each: what the model does mathematically, why it does or does not fit this question's data and mechanism, what makes it conventional or novel) followed by one comparison table row covering: mathematical essence, assumptions, required inputs, outputs, interpretability, novelty, cost, validation method, and risks. Explain the differences between candidates in plain language and mark one as 推荐 with problem-specific reasons. Use `/bzd-model-dictionary` to check selected or disputed candidates. Offer the user the chance to ask for more candidates, a deeper dive into one model, or a visual comparison before choosing. After the choice, record only the decision and rationale in the state file, not the presentation itself.
 
 ### 6. Data and external-data decision
 
@@ -93,9 +94,11 @@ After sectional repairs, invoke `/bzd-review-paper` (or `/mma-review` for a ligh
 
 Use compact Chinese Markdown tables. For models and algorithms, always include at least: `适用条件`, `优点`, `局限/风险`, `解释性`, `创新空间`, `实现成本`, and `验证难度`. Mark one option as `推荐` and justify it with problem evidence. Show a conservative baseline beside innovative options. For figures, tie each candidate to the claim it communicates; do not choose charts for decoration.
 
+Everything in a pause — tables, explanations, trade-off discussion, and the lettered choices — appears in the conversation. The only file written at a pause is the compact state log. If the user asks for a document version of a comparison, produce it on request and continue in-chat afterwards.
+
 ## State, rollback, and failure handling
 
-- Save after every pause; include a timestamp supplied by the runtime if available, otherwise a stage sequence number.
+- Save after every pause; include a timestamp supplied by the runtime if available, otherwise a stage sequence number. The state file is a compact decision log (choices, rejected alternatives, artifact paths, unresolved issues) — not a report, and never a substitute for in-chat explanation.
 - Support `返回上一阶段`, `重做第 X 阶段`, `比较另一条路线`, and `暂停项目`.
 - When changing a confirmed upstream decision, mark downstream artifacts stale rather than silently mixing routes.
 - If files are incomplete, OCR is uncertain, data are insufficient, code fails, or validation contradicts the model, stop at the relevant pause, explain the blocker, offer at least two remedies, and wait.
