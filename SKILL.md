@@ -97,6 +97,8 @@ Use compact Chinese Markdown tables. For models and algorithms, always include a
 
 Everything in a pause — tables, explanations, trade-off discussion, and the lettered choices — appears in the conversation. The only file written at a pause is the compact state log. If the user asks for a document version of a comparison, produce it on request and continue in-chat afterwards.
 
+Time estimates must always be agent-execution time: how long the workflow itself needs after the user confirms (writing code and text is minutes at most; give honest ranges for computation, optimization runs, rendering, and compilation, e.g. 「本次运行约 3–8 分钟，主要耗时在多起点优化」). Never quote human-effort estimates such as 「需要 X 天人工完成」. If a step genuinely requires the user (filling in the team number, visual checks, credentials), list it separately as `人工事项` with the human time it takes.
+
 ## State, rollback, and failure handling
 
 - Save after every pause; include a timestamp supplied by the runtime if available, otherwise a stage sequence number. The state file is a compact decision log (choices, rejected alternatives, artifact paths, unresolved issues) — not a report, and never a substitute for in-chat explanation.
