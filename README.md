@@ -42,9 +42,11 @@
 
 ---
 
-## 📦 安装
+## 📦 安装（多平台通用）
 
-### 方式一：Claude Code
+本仓库即技能本体，无需构建。按你使用的智能体选择对应方式：
+
+### Claude Code / Claude Agent SDK
 
 ```bash
 # 用户级（所有项目可用）
@@ -54,9 +56,34 @@ git clone https://github.com/lwbb-sudo/math-modeling-workflow.git ~/.claude/skil
 git clone https://github.com/lwbb-sudo/math-modeling-workflow.git <你的项目>/.claude/skills/math-modeling-workflow
 ```
 
-### 方式二：mathmodel 桌面端
+重启会话后输入 `/math-modeling-workflow`。
 
-在 MathModel 的技能管理中导入本目录（或使用其技能安装入口选择该文件夹）。
+### claude.ai 网页版 / Claude 桌面端
+
+在 GitHub 仓库页面点 **Code → Download ZIP**，然后在 设置 → 功能/能力（Capabilities）→ 技能（Skills）中上传该 ZIP。
+
+### Codex CLI（OpenAI）
+
+Codex 通过自定义提示词目录加载（Windows 下同样是 `~/.codex/prompts/`）：
+
+```bash
+mkdir -p ~/.codex/prompts
+curl -o ~/.codex/prompts/math-modeling-workflow.md \
+  https://raw.githubusercontent.com/lwbb-sudo/math-modeling-workflow/main/SKILL.md
+```
+
+之后在 Codex 中输入 `/math-modeling-workflow` 启动（frontmatter 会被忽略，正文即完整工作流指令）。
+
+### 任何读取 AGENTS.md 的智能体（Cursor、Gemini CLI 等）
+
+仓库根目录的 `AGENTS.md` 与 `SKILL.md` 内容一致，二选一：
+
+- 把 `AGENTS.md` 复制到你的项目根目录，智能体进入该项目即自动加载；或
+- 将其内容粘贴到智能体的系统提示 / 规则文件中。
+
+### mathmodel 桌面端
+
+在技能管理中导入本目录（或使用技能安装入口选择该文件夹）。
 
 安装后在对话中输入：
 
@@ -65,6 +92,8 @@ git clone https://github.com/lwbb-sudo/math-modeling-workflow.git <你的项目>
 ```
 
 并附上题目 PDF 和全部附件即可启动。
+
+> **跨平台说明**：工作流引用的 `bzd-*`、`mma-*` 等配套技能是 mathmodel 生态的可选增强。在任何没有这些技能的智能体上，工作流会自动降级为主智能体直接完成等价分析，不会中断。
 
 ---
 

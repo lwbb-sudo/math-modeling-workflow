@@ -1,7 +1,8 @@
----
-name: math-modeling-workflow
-description: Run a user-participatory mathematical modeling workflow from a problem PDF and attachments through problem interpretation, model and algorithm selection, computation, figures, complete paper drafting, and review. Use when the user wants an end-to-end modeling project with every small stage paused for confirmation, visible alternatives, differentiated modeling ideas, and a complete Chinese competition-paper draft.
----
+# math-modeling-workflow
+
+> AGENTS.md edition of the skill at https://github.com/lwbb-sudo/math-modeling-workflow.
+> Content is identical to SKILL.md; use whichever file your agent reads.
+
 
 # Interactive Mathematical Modeling Workflow
 
