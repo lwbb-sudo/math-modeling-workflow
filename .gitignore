@@ -5,5 +5,17 @@ desktop.ini
 
 # Editor
 *.swp
+*.swo
 .idea/
 .vscode/
+
+# Python/runtime caches
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+*.temp
+
+# Local bundle staging and verification installs
+.skills-staging/
+.bundle-test-install/

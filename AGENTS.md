@@ -1,8 +1,12 @@
 # math-modeling-workflow
 
 > AGENTS.md edition of the skill at https://github.com/lwbb-sudo/math-modeling-workflow.
-> Content is identical to SKILL.md; use whichever file your agent reads.
+> The workflow body is kept in sync with SKILL.md; SKILL.md additionally carries skill frontmatter.
 
+---
+name: math-modeling-workflow
+description: Run a user-participatory mathematical modeling workflow from a problem PDF and attachments through problem interpretation, model and algorithm selection, computation, figures, complete paper drafting, and review. Use when the user wants an end-to-end modeling project with every small stage paused for confirmation, visible alternatives, differentiated modeling ideas, and a complete Chinese competition-paper draft.
+---
 
 # Interactive Mathematical Modeling Workflow
 
@@ -15,7 +19,7 @@ Act as a staged research coordinator, not a one-click answer generator. The defa
 - Pause after every small stage listed below. Never silently cross a decision boundary.
 - At each pause, show: `已完成`, `当前理解`, `证据/数据/约束`, `候选方案`, `推荐及理由`, `创新空间与风险`, `下一阶段`, and explicit choices.
 - Present ALL stage results, candidate tables, and explanations directly in the conversation as Markdown. Never push decision material into a file: do not create stage-report or option-comparison MD documents during the workflow. Write an MD report only when the user explicitly asks for one (e.g. 「把这份对比导出成文档」). Files are for real artifacts only: extracted data, code, figures, paper drafts, and the compact state log.
-- Companion skill references (`/bzd-*`, `/mma-*`, `/data-search`, `/metaheuristic-optimization`, `doctor`) are optional integrations. If a referenced skill does not exist in the host agent, perform the equivalent analysis yourself and say so; never block, skip silently, or fail because a companion skill is missing.
+- Companion skill references (`/bzd-*`, `/mma-*`, `/data-search`, `/metaheuristic-optimization`, `doctor`) are included in the complete repository bundle and should be invoked from the installed companion set when available. If a referenced skill was not installed or does not exist in the host agent, perform the equivalent analysis yourself and say so; never block, skip silently, or fail because a companion skill is missing.
 - Accept choices such as adopting an option, requesting more alternatives, custom instructions, returning to a prior stage, or pausing the project.
 - Do not claim a result, source, computation, or validation that was not actually obtained.
 - Never overwrite original inputs. Ask before destructive changes, external-data retrieval, dependency installation, publication, or upload.
@@ -97,6 +101,8 @@ After sectional repairs, invoke `/bzd-review-paper` (or `/mma-review` for a ligh
 Use compact Chinese Markdown tables. For models and algorithms, always include at least: `适用条件`, `优点`, `局限/风险`, `解释性`, `创新空间`, `实现成本`, and `验证难度`. Mark one option as `推荐` and justify it with problem evidence. Show a conservative baseline beside innovative options. For figures, tie each candidate to the claim it communicates; do not choose charts for decoration.
 
 Everything in a pause — tables, explanations, trade-off discussion, and the lettered choices — appears in the conversation. The only file written at a pause is the compact state log. If the user asks for a document version of a comparison, produce it on request and continue in-chat afterwards.
+
+Time estimates must always be agent-execution time: how long the workflow itself needs after the user confirms (writing code and text is minutes at most; give honest ranges for computation, optimization runs, rendering, and compilation, e.g. 「本次运行约 3–8 分钟，主要耗时在多起点优化」). Never quote human-effort estimates such as 「需要 X 天人工完成」. If a step genuinely requires the user (filling in the team number, visual checks, credentials), list it separately as `人工事项` with the human time it takes.
 
 ## State, rollback, and failure handling
 

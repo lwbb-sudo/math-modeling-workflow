@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "bundle_name": "math-modeling-workflow",
+  "root_skill": "math-modeling-workflow",
+  "description": "Complete offline companion-skill bundle for the interactive mathematical-modeling workflow.",
+  "skills": [
+    {
+      "name": "bzd-problem-translator",
+      "source_type": "bzd-plugin",
+      "source": "bzd-problem-translator",
+      "target": "skills/bzd-problem-translator",
+      "dependencies": [],
+      "license_note": "BZD companion skill; preserve all embedded attribution and use notices."
+    },
+    {
+      "name": "bzd-problem-restatement",
+      "source_type": "bzd-plugin",
+      "source": "bzd-problem-restatement",
+      "target": "skills/bzd-problem-restatement",
+      "dependencies": [],
+      "license_note": "BZD companion skill; preserve all embedded attribution and use notices."
+    },
+    {
+      "name": "bzd-problem-analysis-checker",
+      "source_type": "bzd-plugin",
+      "source": "bzd-problem-analysis-checker",
+      "target": "skills/bzd-problem-analysis-checker",
+      "dependencies": [],
+      "license_note": "BZD companion skill; preserve all embedded attribution and use notices."
+    },
+    {
+      "name": "bzd-modeling-ideas",
+      "source_type": "bzd-plugin",
+      "source": "bzd-modeling-ideas",
+      "target": "skills/bzd-modeling-ideas",
+      "dependencies": ["bzd-problem-translator"],
+      "license_note": "BZD companion skill; preserve all embedded attribution and use notices."
+    },
+    {
+      "name": "bzd-model-dictionary",
+      "source_type": "bzd-plugin",
+      "source": "bzd-model-dictionary",
+      "target": "skills/bzd-model-dictionary",
+      "dependencies": [],
+      "license_note": "Includes BZD model-dictionary data restricted to personal learning, modeling competitions, and non-commercial exchange. Attribution and every embedded notice must remain intact."
+    },
+    {
+      "name": "bzd-model-assumption-checker",
+      "source_type": "bzd-plugin",
+      "source": "bzd-model-assumption-checker",
+      "target": "skills/bzd-model-assumption-checker",
+      "dependencies": [],
+      "license_note": "BZD companion skill; preserve all embedded attribution and use notices."
+    },
+    {
+      "name": "bzd-model-solution-checker",
+      "source_type": "bzd-plugin",
+      "source": "bzd-model-solution-checker",
+      "target": "skills/bzd-model-solution-checker",
+      "dependencies": [],
+      "license_note": "BZD companion skill; preserve all embedded attribution and use notices."
+    },
+    {
+      "name": "bzd-abstract-checker",
+      "source_type": "bzd-plugin",
+      "source": "bzd-abstract-checker",
+      "target": "skills/bzd-abstract-checker",
+      "dependencies": [],
+      "license_note": "BZD companion skill; preserve all embedded attribution and use notices."
+    },
+    {
+      "name": "bzd-symbol-notation-checker",
+      "source_type": "bzd-plugin",
+      "source": "bzd-symbol-notation-checker",
+      "target": "skills/bzd-symbol-notation-checker",
+      "dependencies": [],
+      "license_note": "BZD companion skill; preserve all embedded attribution and use notices."
+    },
+    {
+      "name": "bzd-reference-appendix-checker",
+      "source_type": "bzd-plugin",
+      "source": "bzd-reference-appendix-checker",
+      "target": "skills/bzd-reference-appendix-checker",
+      "dependencies": [],
+      "exclude": ["bzd-reference-appendix-checker/"],
+      "license_note": "BZD companion skill; the duplicated nested copy is excluded."
+    },
+    {
+      "name": "bzd-ai-usage-disclosure",
+      "source_type": "bzd-plugin",
+      "source": "bzd-ai-usage-disclosure",
+      "target": "skills/bzd-ai-usage-disclosure",
+      "dependencies": [],
+      "license_note": "BZD companion skill; preserve all embedded attribution and use notices."
+    },
+    {
+      "name": "bzd-review-paper",
+      "source_type": "bzd-plugin",
+      "source": "bzd-review-paper",
+      "target": "skills/bzd-review-paper",
+      "dependencies": ["bzd-paper-format-checker"],
+      "license_note": "BZD companion skill; preserve calibration/reference data notices."
+    },
+    {
+      "name": "bzd-paper-format-checker",
+      "source_type": "bzd-plugin",
+      "source": "bzd-paper-format-checker",
+      "target": "skills/bzd-paper-format-checker",
+      "dependencies": [],
+      "license_note": "BZD companion skill; preserve all embedded attribution and use notices."
+    },
+    {
+      "name": "data-search",
+      "source_type": "builtin",
+      "source": "data-search",
+      "target": "skills/data-search",
+      "dependencies": [],
+      "license_note": "mathmodel built-in skill; upstream metadata is retained."
+    },
+    {
+      "name": "metaheuristic-optimization",
+      "source_type": "builtin",
+      "source": "metaheuristic-optimization",
+      "target": "skills/metaheuristic-optimization",
+      "dependencies": [],
+      "license_note": "mathmodel built-in skill; upstream metadata is retained."
+    },
+    {
+      "name": "mma-figure",
+      "source_type": "builtin",
+      "source": "mma-figure",
+      "target": "skills/mma-figure",
+      "dependencies": ["nature-figure", "mathmodel-figure-templates", "paper-diagram"],
+      "license_note": "mathmodel built-in routing skill."
+    },
+    {
+      "name": "mma-paper",
+      "source_type": "builtin",
+      "source": "mma-paper",
+      "target": "skills/mma-paper",
+      "dependencies": ["paper-diagram", "paper-search", "nature-figure"],
+      "license_note": "Includes multiple competition LaTeX templates. Template-local copyright and LPPL notices remain controlling."
+    },
+    {
+      "name": "mma-review",
+      "source_type": "builtin",
+      "source": "mma-review",
+      "target": "skills/mma-review",
+      "dependencies": ["paper-search", "mma-paper"],
+      "license_note": "mathmodel built-in review skill."
+    },
+    {
+      "name": "nature-figure",
+      "source_type": "builtin",
+      "source": "nature-figure",
+      "target": "skills/nature-figure",
+      "dependencies": [],
+      "license_note": "Apache-2.0; retain LICENSE.txt and upstream notices."
+    },
+    {
+      "name": "mathmodel-figure-templates",
+      "source_type": "builtin",
+      "source": "mathmodel-figure-templates",
+      "target": "skills/mathmodel-figure-templates",
+      "dependencies": [],
+      "license_note": "mathmodel built-in template collection; retain source and data attribution present in files."
+    },
+    {
+      "name": "paper-diagram",
+      "source_type": "builtin",
+      "source": "paper-diagram",
+      "target": "skills/paper-diagram",
+      "dependencies": [],
+      "license_note": "Includes Tabler icons; retain ATTRIBUTION.md and assets/icons/tabler/LICENSE."
+    },
+    {
+      "name": "paper-search",
+      "source_type": "builtin",
+      "source": "paper-search",
+      "target": "skills/paper-search",
+      "dependencies": [],
+      "license_note": "mathmodel built-in literature-search skill."
+    },
+    {
+      "name": "doctor",
+      "source_type": "builtin",
+      "source": "doctor",
+      "target": "skills/doctor",
+      "dependencies": [],
+      "license_note": "mathmodel built-in environment-diagnostics skill."
+    }
+  ]
+}
